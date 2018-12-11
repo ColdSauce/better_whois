@@ -2,7 +2,7 @@ import subprocess
 import sys
 import re
 
-def defang_url(url):
+def fang_url(url):
     return '.'.join(url.split('[.]'))
 
 def clean_url(url):
@@ -10,7 +10,7 @@ def clean_url(url):
     match = protocol_regex.search(url)
 
     url_without_protocol = url[match.end(0):]
-    return defang_url(url_without_protocol)
+    return fang_url(url_without_protocol)
     
 def main():
     url = sys.argv[1]
