@@ -18,6 +18,7 @@ def main():
     
     if len(sys.argv) != 1:
         print ('Missing URL')
+        return
 
     if len(sys.argv) > 1:
         extra_params = sys.argv[2:]
