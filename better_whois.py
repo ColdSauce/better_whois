@@ -6,10 +6,8 @@ def fang_url(url):
     return '.'.join(url.split('[.]'))
 
 def clean_url(url):
-    print(url)
     protocol_regex = re.compile('^.*://')
     match = protocol_regex.search(url)
-    print(match)
     if match is None:
         return fang_url(url)
     else:
