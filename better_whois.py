@@ -21,7 +21,7 @@ def main():
 
     url = sys.argv[1]
     extra_params = []
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 2:
         extra_params = sys.argv[2:]
 
     subprocess.Popen(['whois'] + [clean_url(url)] + extra_params)
