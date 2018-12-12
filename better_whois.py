@@ -6,8 +6,10 @@ def fang_url(url):
     return '.'.join(url.split('[.]'))
 
 def clean_url(url):
+    print(url)
     protocol_regex = re.compile('^.*://')
     match = protocol_regex.search(url)
+    print(match)
     if match is None:
         return fang_url(url)
     else:
@@ -15,13 +17,12 @@ def clean_url(url):
         return fang_url(url_without_protocol)
     
 def main():
-    url = sys.argv[1]
-    extra_params = []
-    
-    if len(sys.argv) < 1:
+    if len(sys.argv) < 2:
         print ('Missing URL')
         return
 
+    url = sys.argv[1]
+    extra_params = []
     if len(sys.argv) > 1:
         extra_params = sys.argv[2:]
 
