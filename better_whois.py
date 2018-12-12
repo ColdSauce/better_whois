@@ -8,9 +8,11 @@ def fang_url(url):
 def clean_url(url):
     protocol_regex = re.compile('^.*://')
     match = protocol_regex.search(url)
-
-    url_without_protocol = url[match.end(0):]
-    return fang_url(url_without_protocol)
+    if match is None:
+        return fang_url(url)
+    else:
+        url_without_protocol = url[match.end(0):]
+        return fang_url(url_without_protocol)
     
 def main():
     url = sys.argv[1]
